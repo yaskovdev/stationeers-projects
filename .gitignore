@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+__pycache__/
+classify_image_graph_def.pb
+*.egg-info/
+
+/log.txt
+/progress.csv
+/samples.jpeg

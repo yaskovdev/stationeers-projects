@@ -1,0 +1,29 @@
+alias sensor d0
+alias device d1
+
+define min_temp 295.15
+define max_temp 298.15
+
+main:
+yield
+
+l r1 sensor VolumeOfLiquid
+blt r1 0.1 force_off
+
+l r0 sensor Temperature
+blt r0 min_temp turn_on
+bgt r0 max_temp turn_off
+
+j main
+
+force_off:
+s device On 0
+j main
+
+turn_on:
+s device On 1
+j main
+
+turn_off:
+s device On 0
+j main
