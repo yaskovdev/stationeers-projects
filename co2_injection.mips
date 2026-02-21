@@ -1,0 +1,22 @@
+main:
+yield
+
+l r1 db PressureOutput
+bgt r1 60000 turn_off
+bgt r1 59000 main
+
+l r0 db RatioNitrogenOutput
+bgt r0 0.1 turn_off
+bgt r0 0.09 main
+
+turn_on
+
+j main
+
+turn_on:
+s device Mode 1
+j main
+
+turn_off:
+s device Mode 0
+j main

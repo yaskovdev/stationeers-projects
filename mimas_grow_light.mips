@@ -1,0 +1,23 @@
+alias device d0
+alias sensor d1
+
+define min_horizontal -180
+define max_horizontal -10
+
+main:
+yield
+
+l r0 sensor Horizontal
+blt r0 min_horizontal turn_off
+bgt r0 max_horizontal turn_off
+turn_on
+
+j main
+
+turn_on:
+s device On 1
+j main
+
+turn_off:
+s device On 0
+j main
