@@ -10,9 +10,6 @@ yield
 l r0 sensor Horizontal
 blt r0 min_horizontal turn_off
 bgt r0 max_horizontal turn_off
-turn_on
-
-j main
 
 turn_on:
 s device On 1
